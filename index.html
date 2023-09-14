@@ -1,14 +1,48 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rest Countries App</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles/style.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="scripts/script.js"></script>
+        <title>Frontend Mentor Project</title>
+    </head>
 <body>
-    <!-- Add the content of your web page here -->
+    <header>
+        <h1>REST Countries App</h1>
+        <button id="theme-switcher" @click="toggleTheme"></button>
 
-    <script src="script.js"></script>
+    </header>
+  
+    <main>
+        <div class="search">
+          <input type="text" id="search-input" placeholder="Search for a country...">
+        </div>
+  
+        <div class="countries-list">
+          <!-- Country cards will be dynamically added here -->
+        </div>
+    </main>
+
+    <div id="app">
+        <country-card v-for="country in countries" :country="country" :key="country.name.common"></country-card>
+    </div>
+
+    <!-- <div class="card">
+        <img :src="country.flag" alt="Country Flag" class="card__flag">
+        <div class="card__details">
+          <h2 class="card__name">{{ country.name }}</h2>
+          <p class="card__population">
+            <strong>Population: </strong>{{ country.population }}
+          </p>
+          <p class="card__region">
+            <strong>Region: </strong>{{ country.region }}
+          </p>
+          <p class="card__capital">
+            <strong>Capital: </strong>{{ country.capital }}
+          </p>
+        </div>
+    </div> -->     
 </body>
 </html>
